@@ -141,7 +141,8 @@ Contiene el código fuente de la aplicación.
 El proyecto esta dockerizado por lo que habrá que tener instalado docker y docker-compose.
 
 Y para montar todo el proyecto y desplegarlo habrá que ejecutar lo siguiente:
-sudo docker-compose up
+
+```sudo docker-compose up```
 
 
 Un ejemplo de request GET sería http://localhost:8080/api/tasks/list_all a traves del navegador o postman.
