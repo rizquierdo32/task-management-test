@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/taskbbdd
+    networks:
+      - custom-network
+    volumes:
+      - ./config:/opt/app/config
+
+  mongodb:
+    image: mongo:4.4
+    ports:
+      - "27020:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - custom-network
+
+networks:
+  custom-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+
+
