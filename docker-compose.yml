@@ -12,7 +12,7 @@ services:
     environment:
       - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/taskbbdd
     networks:
-      - app-network
+      - custom-network
     volumes:
       - ./config:/opt/app/config
 
@@ -23,11 +23,13 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-      - app-network
+      - custom-network
 
 networks:
-  app-network:
+  custom-network:
     driver: bridge
 
 volumes:
   mongodb_data:
+
+
